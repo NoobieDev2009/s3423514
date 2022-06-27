@@ -1,0 +1,578 @@
+repeat wait() until game:IsLoaded() and game.Players.LocalPlayer.Character and game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+if getgenv().ExecutedAlt == true then
+	return 
+end
+if getgenv().MainAccount == game.Players.LocalPlayer.Name then
+	getgenv().ExecutedAlt = true
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/MsorkyScripts/SellerScript/main/output-CNsg%20(1).lua"))()
+	return
+end
+coroutine.wrap(function()
+	local Tries = 1
+	repeat wait(1)Tries+= 1 pcall(setfpscap, getgenv().FPS)
+	pcall(set_fps_cap, getgenv().FPS) until Tries > 50
+end)()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/MsorkyScripts/OpenSourceAntiCheat/main/AntiCheatBypass.txt"))()
+
+if game.PlaceId == 2788229376 then
+
+    local CoreGui = game:GetService("StarterGui") 
+    CoreGui:SetCore("SendNotification", {
+     Title = "Welcome to FishControl!",
+     Text = "Made By ownerofthis#6041",
+    Duration = 15;
+    })
+    if not game:IsLoaded() then
+        repeat wait() until game:IsLoaded()
+    end
+end
+
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local colors = {
+SchemeColor = Color3.fromRGB(0,0,0),
+Background = Color3.fromRGB(0, 0, 0),
+Header = Color3.fromRGB(0, 0, 0),
+TextColor = Color3.fromRGB(255,0,0),
+ElementColor = Color3.fromRGB(20, 20, 20)
+}
+
+local Window = Library.CreateLib("FishControl", colors)
+
+local Main = Window:NewTab("  Main Info   ")
+local MainSection = Main:NewSection("Welcome to FishControlGui!")
+
+local MainSection = Main:NewSection("Made By ownerofthis#6041")
+
+
+
+
+MainSection:NewButton("Credits ", "", function(v)
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Owned by";
+    Text = "KyW#8802 + ownerofthis!";})
+    Duration = 20;
+end)
+
+MainSection:NewButton("Discord Server ", "Already being Copied On your Clipboard", function(v)
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Copied Link!";
+        Text = "Make sure to join the discord Discord Server!";
+        Icon = ""})
+        Duration = 20;
+    setclipboard("discord.gg/FTSWMz2qmK")
+    end)
+    
+local Teleports = Window:NewTab("Teleports")
+local TeleportsMain = Teleports:NewSection("Teleports, All listed below!")
+
+TeleportsMain:NewButton("Admin", "", function(v)
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Teleport";
+    Text = "Admin";})
+    Duration = 5;
+end)
+
+TeleportsMain:NewButton("Club", "", function (v)
+    
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Teleport";
+        Text = "Club";})
+        Duration = 5;
+end)
+
+TeleportsMain:NewButton("TrainStation", "", function (v)
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Teleport";
+        Text = "TrainStation";})
+        Duration = 5;
+end)
+
+TeleportsMain:NewButton("Bank", "", function (v)
+
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "Teleport";
+        Text = "Bank";})
+        Duration = 5;    
+end)
+else
+    game.Players.LocalPlayer:Kick("Join DaHood not this game......")
+
+local abbreviations  = {
+        "K", -- 4 digits 
+        "M", -- 7 digits
+        "B", -- 10 digits
+        "T", -- 13 digits
+        "Q", -- 16 digits
+        "Qi", -- 19 digits
+        "S", -- 22 digits
+        "Sx", -- 25 digits
+        "Sp", -- 25 digits
+        "Oc", -- 28 digits
+        "N", -- 31 digits
+        "De", -- 34 digits
+        "Un", -- 37 digits
+        "Tr", -- 40 digits
+    }
+
+    local maxValue = 1000
+    local VirtualUser=game:service'VirtualUser'
+    game:service'Players'.LocalPlayer.Idled:connect(function()
+        VirtualUser:CaptureController()
+        VirtualUser:ClickButton2(Vector2.new())
+    end)
+    function Abbreviate(value)
+        local cut = maxValue
+        if value  < cut then
+            return value 
+        else
+            local inStr = tostring(math.floor(value ))
+            if inStr:lower() == "inf" or inStr:find("nan") then
+                return inStr
+            end
+            local length, str
+            local isExp, strEnd = inStr:find("e%+")
+            if isExp then
+                length = inStr:sub(strEnd + 1) + 1
+                str = tostring(inStr:sub(1, isExp - 1) * 100):sub(1, 3)
+            else
+                length = #inStr
+                str = inStr:sub(1, 3)
+            end
+            local div, rem = math.floor(length / 3), length % 3
+            if rem == 0 then
+                div = div - 1
+            end
+            if div > #abbreviations  then
+                print("div", div, "greater than suff", #abbreviations )
+                str = inStr
+            else
+                if rem == 1 then
+                    str = tostring(tonumber(str) / 100)
+                elseif rem == 2 then
+                    str = tostring(tonumber(str) / 10)
+                end
+                local suff = abbreviations [div]
+                if suff == "O" then
+                    str = str .. " " .. suff
+                else
+                    str = str .. suff
+                end
+            end
+            return str
+        end
+    end
+
+
+
+    repeat wait() until game.Players.LocalPlayer.Character
+
+    game.Players.LocalPlayer.Character:WaitForChild("Humanoid"):SetStateEnabled(Enum.HumanoidStateType.FallingDown,false)
+    if getgenv().AutoRender == true then
+        UserSettings().GameSettings.MasterVolume = 0
+    
+    
+        main = Instance.new("ScreenGui")
+        Frame = Instance.new("Frame")
+        TextLabel = Instance.new("TextLabel")
+        TextLabel_2 = Instance.new("TextLabel")
+        TextLabel_3 = Instance.new("TextLabel")
+    
+        main.Name = "RenderScreen"
+        main.Parent = game.CoreGui
+        main.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+        main.IgnoreGuiInset = true
+    
+        Frame.Parent = main
+        Frame.Active = true
+        Frame.AnchorPoint = Vector2.new(0.5, 0.5)
+        Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
+        Frame.Size = UDim2.new(1, 0, 1, 0)
+    
+        TextLabel.Parent = Frame
+        TextLabel.AnchorPoint = Vector2.new(0.5, 0.5)
+        TextLabel.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+        TextLabel.BackgroundTransparency = 1.000
+        TextLabel.Position = UDim2.new(0.5, 0, 0.419999987, 0)
+        TextLabel.Size = UDim2.new(0, 279, 0, 34)
+        TextLabel.Font = Enum.Font.Gotham
+        TextLabel.Text = "FishControl, Welcome "..game.Players.LocalPlayer.Name.." yes that is your username dumbass"
+        TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+        TextLabel.TextScaled = true
+        TextLabel.TextSize = 14.000
+        TextLabel.TextWrapped = true
+    
+    
+        game:GetService("RunService"):Set3dRenderingEnabled(false)
+    end
+
+    repeat wait(1) until game.Players:FindFirstChild(getgenv().MainAccount)
+local MainAccount = getgenv().MainAccount
+local Player = game.Players:FindFirstChild(MainAccount)
+
+local AutoGrind = false
+local Dropping = false
+local AddOn = false
+local Aura = false
+local CurrAnim = nil
+local IsLocking = false
+local Crashing = false
+local CustomDrop = false
+if Player then
+
+
+	getgenv().ExecutedAlt  = true
+	for i,v in pairs(getgenv().Alts) do
+		if v == game.Players.LocalPlayer.UserId then
+			getgenv().PointInTable = i
+		end
+	end
+
+	game.Players.LocalPlayer.CharacterAdded:Connect(function()
+		Aura = false
+		AddOn = false
+		Dropping = false
+		AutoGrind = false
+		IsLocking = false
+		CustomDrop = false
+	end)
+
+elseif Chat == ".check" then
+    local Drop = workspace.Ignored.Drop
+    local AmountOfMoney = 0
+    for i,v in pairs(Drop:GetChildren()) do
+        if v.Name == "MoneyDrop" then
+            local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+            AmountOfMoney += numbers
+        end
+    end
+    local newStr = Abbreviate(AmountOfMoney)
+    newStr = tostring(newStr)
+    game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(newStr, 'All')
+elseif Chat == ".customdrop 100k" then
+    Dropping = false
+    local Drop = workspace.Ignored.Drop
+    local OldMoney = 0
+    for i,v in pairs(Drop:GetChildren()) do
+        if v.Name == "MoneyDrop" then
+            local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+            OldMoney += numbers
+        end
+    end
+    game.ReplicatedStorage.MainEvent:FireServer(
+        "DropMoney",
+        10000
+    )
+    CustomDrop = true
+    coroutine.wrap(function()
+        repeat wait(0.5) 	
+            game.ReplicatedStorage.MainEvent:FireServer(
+                "DropMoney",
+                10000
+            )
+            local Drop = workspace.Ignored.Drop
+            local Money = 0
+            for i,v in pairs(Drop:GetChildren()) do
+                if v.Name == "MoneyDrop" then
+                    local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                    Money += numbers
+                end
+            end 
+        until Money >= (OldMoney+100000) or not CustomDrop
+    end)()
+elseif Chat == ".customdrop 500k" then
+    Dropping = false
+    local Drop = workspace.Ignored.Drop
+    local OldMoney = 0
+    for i,v in pairs(Drop:GetChildren()) do
+        if v.Name == "MoneyDrop" then
+            local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+            OldMoney += numbers
+        end
+    end
+    game.ReplicatedStorage.MainEvent:FireServer(
+        "DropMoney",
+        10000
+    )
+    CustomDrop = true
+    coroutine.wrap(function()
+        repeat wait(0.5) 	
+            game.ReplicatedStorage.MainEvent:FireServer(
+                "DropMoney",
+                10000
+            )
+            local Drop = workspace.Ignored.Drop
+            local Money = 0
+            for i,v in pairs(Drop:GetChildren()) do
+                if v.Name == "MoneyDrop" then
+                    local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                    Money += numbers
+                end
+            end 
+        until Money >= (OldMoney+500000) or not CustomDrop
+    end)()
+elseif Chat == ".customdrop 1m" then
+    Dropping = false
+    local Drop = workspace.Ignored.Drop
+    local OldMoney = 0
+    for i,v in pairs(Drop:GetChildren()) do
+        if v.Name == "MoneyDrop" then
+            local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+            OldMoney += numbers
+        end
+    end
+    game.ReplicatedStorage.MainEvent:FireServer(
+        "DropMoney",
+        10000
+    )
+    CustomDrop = true
+    coroutine.wrap(function()
+        repeat wait(0.5) 	
+            game.ReplicatedStorage.MainEvent:FireServer(
+                "DropMoney",
+                10000
+            )
+            local Drop = workspace.Ignored.Drop
+            local Money = 0
+            for i,v in pairs(Drop:GetChildren()) do
+                if v.Name == "MoneyDrop" then
+                    local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                    Money += numbers
+                end
+            end 
+        until Money >= (OldMoney+1000000) or not CustomDrop
+    end)()
+elseif Chat == ".customdrop 5m" then
+    Dropping = false
+    local Drop = workspace.Ignored.Drop
+    local OldMoney = 0
+    for i,v in pairs(Drop:GetChildren()) do
+        if v.Name == "MoneyDrop" then
+            local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+            OldMoney += numbers
+        end
+    end
+    game.ReplicatedStorage.MainEvent:FireServer(
+        "DropMoney",
+        10000
+    )
+    CustomDrop = true
+    coroutine.wrap(function()
+        repeat wait(0.5) 	
+            game.ReplicatedStorage.MainEvent:FireServer(
+                "DropMoney",
+                10000
+            )
+            local Drop = workspace.Ignored.Drop
+            local Money = 0
+            for i,v in pairs(Drop:GetChildren()) do
+                if v.Name == "MoneyDrop" then
+                    local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                    Money += numbers
+                end
+            end 
+        until Money >= (OldMoney+5000000) or not CustomDrop
+    end)()
+elseif Chat == ".customdrop 10m" then
+    Dropping = false
+    local Drop = workspace.Ignored.Drop
+    local OldMoney = 0
+    for i,v in pairs(Drop:GetChildren()) do
+        if v.Name == "MoneyDrop" then
+            local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+            OldMoney += numbers
+        end
+    end
+    game.ReplicatedStorage.MainEvent:FireServer(
+        "DropMoney",
+        10000
+    )
+    CustomDrop = true
+    coroutine.wrap(function()
+        repeat wait(0.5) 	
+            game.ReplicatedStorage.MainEvent:FireServer(
+                "DropMoney",
+                10000
+            )
+            local Drop = workspace.Ignored.Drop
+            local Money = 0
+            for i,v in pairs(Drop:GetChildren()) do
+                if v.Name == "MoneyDrop" then
+                    local numbers = string.gsub(v.BillboardGui.TextLabel.Text, "%D", "")
+                    Money += numbers
+                end
+            end 
+        until Money >= (OldMoney+10000000) or not CustomDrop
+    end)
+end
+function Bring()
+    local Player = game.Players.LocalPlayer
+    local c = Player.Character
+
+    if MainPlr.Character and MainPlr.Character:FindFirstChild("Humanoid") and MainPlr.Character.Humanoid.Health>0 then
+
+        c.HumanoidRootPart.CFrame = MainPlr.Character.HumanoidRootPart.CFrame
+    end
+end
+
+local function ShowWallet()
+    local Player = game.Players.LocalPlayer
+    if Player.Backpack:FindFirstChild("Wallet") then
+        Player.Backpack.Wallet.Parent = game.Players.LocalPlayer.Character
+    end
+end
+function RemoveWallet()
+    local Player = game.Players.LocalPlayer
+    if Player.Character:FindFirstChild("Wallet") then
+        Player.Character.Wallet.Parent = game.Players.LocalPlayer.Backpack
+    end
+end
+
+
+function stop()
+    Dropping = false
+    CustomDrop = false
+end
+end
+
+function SetupAdmin() 
+    local Player = game.Players.LocalPlayer
+    local PointInTable = nil
+    for i,v in pairs(getgenv().Alts) do
+        if v == Player.UserId then
+            PointInTable = i
+        end
+    end
+    for i = 1,10 do
+        if PointInTable == i then
+            local XCoordinate = 0
+            local ZCoordinate = 0
+            ZCoordinate = i*3
+
+            local TargCF = 	CFrame.new(-884.12915, -38.3972931, -545.291809, -0.99998939, 2.69316498e-08, -0.00460755778, 2.6944301e-08, 1, -2.68358624e-09, 0.00460755778, -2.80770518e-09, -0.99998939)
+
+
+
+            --if PointInTable == 1 then
+            --	Player.Character.HumanoidRootPart.CFrame = TargCF*CFrame.new(0,0,0)
+
+            --else
+            --	Player.Character.HumanoidRootPart.CFrame = TargCF*CFrame.new(XCoordinate,0,-ZCoordinate*1)
+
+            --end
+
+
+            local Clone = Player.Character
+            Clone.HumanoidRootPart.CFrame = TargCF*CFrame.new(-XCoordinate,0,ZCoordinate)
+        end	
+
+    end
+
+
+
+    local i = 0
+    for index = 11,20 do
+        i += 1
+
+        if PointInTable == index then
+            local XCoordinate = 8
+            local ZCoordinate = 0
+            ZCoordinate = i*3
+
+            local TargCF = 	CFrame.new(-884.12915, -38.3972931, -545.291809, -0.99998939, 2.69316498e-08, -0.00460755778, 2.6944301e-08, 1, -2.68358624e-09, 0.00460755778, -2.80770518e-09, -0.99998939)
+
+
+
+            --if PointInTable == 1 then
+            --	Player.Character.HumanoidRootPart.CFrame = TargCF*CFrame.new(0,0,0)
+
+            --else
+            --	Player.Character.HumanoidRootPart.CFrame = TargCF*CFrame.new(XCoordinate,0,-ZCoordinate*1)
+
+            --end
+
+
+            local Clone = Player.Character
+            Clone.HumanoidRootPart.CFrame = TargCF*CFrame.new(-XCoordinate,0,ZCoordinate)
+
+
+        end
+
+    end
+
+
+
+    local i = 0
+    for index = 21,30 do
+        i += 1
+        if PointInTable == index then
+            local XCoordinate = 16
+            local ZCoordinate = 0
+            ZCoordinate = i*3
+
+            local TargCF = 	CFrame.new(-884.12915, -38.3972931, -545.291809, -0.99998939, 2.69316498e-08, -0.00460755778, 2.6944301e-08, 1, -2.68358624e-09, 0.00460755778, -2.80770518e-09, -0.99998939)
+
+
+
+            --if PointInTable == 1 then
+            --	Player.Character.HumanoidRootPart.CFrame = TargCF*CFrame.new(0,0,0)
+
+            --else
+            --	Player.Character.HumanoidRootPart.CFrame = TargCF*CFrame.new(XCoordinate,0,-ZCoordinate*1)
+
+            --end
+
+            local Clone = Player.Character
+            Clone.HumanoidRootPart.CFrame = TargCF*CFrame.new(-XCoordinate,0,ZCoordinate)
+
+        end
+
+    end
+
+
+    local i = 0
+    for index = 31,40 do
+        i += 1
+        if PointInTable == index then
+            local XCoordinate = 24
+            local ZCoordinate = 0
+            ZCoordinate = i*3
+
+            local TargCF = 	CFrame.new(-884.12915, -38.3972931, -545.291809, -0.99998939, 2.69316498e-08, -0.00460755778, 2.6944301e-08, 1, -2.68358624e-09, 0.00460755778, -2.80770518e-09, -0.99998939)
+
+
+
+            --if PointInTable == 1 then
+            --	Player.Character.HumanoidRootPart.CFrame = TargCF*CFrame.new(0,0,0)
+
+            --else
+            --	Player.Character.HumanoidRootPart.CFrame = TargCF*CFrame.new(XCoordinate,0,-ZCoordinate*1)
+
+            --end
+
+            local Clone = Player.Character
+            Clone.HumanoidRootPart.CFrame = TargCF*CFrame.new(-XCoordinate,0,ZCoordinate)
+
+        end
+
+    end
+    game.Players.PlayerAdded:Connect(function(Plr)
+		print("NewPLR"..Plr.Name)
+		if Plr.Name == getgenv().MainAccount then
+			MainPlr = Plr
+			Player = Plr
+	
+			print(Plr.Name.."Joined game")
+			coroutine.wrap(function()
+				Chatted(Plr)
+			end)()
+	
+		end
+   end)
+
+   
+
+end

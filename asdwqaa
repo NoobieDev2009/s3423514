@@ -1,3 +1,12 @@
+local CoreGui = game:GetService("StarterGui") 
+CoreGui:SetCore("SendNotification", {
+ Title = "Welcome to FishControl!",
+ Text = "Made By ownerofthis#6041",
+Duration = 15;
+})
+if not game:IsLoaded() then
+	repeat wait() until game:IsLoaded()
+end
 
 local Testing = false
 -- Cmds
@@ -6,7 +15,83 @@ if table.find(getgenv().Alts,game.Players.LocalPlayer.UserId) then
 else
 	return
 end
-if game.Players.LocalPlayer.Name == getgenv().HostUser or getgenv().Executed then
+if getgenv.Gui == true then
+	print("Gui Loaded!")
+	if game.PlaceId == 2788229376 then
+	
+	Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+	colors = {
+	SchemeColor = Color3.fromRGB(0,0,0),
+	Background = Color3.fromRGB(0, 0, 0),
+	Header = Color3.fromRGB(0, 0, 0),
+	TextColor = Color3.fromRGB(255,0,0),
+	ElementColor = Color3.fromRGB(20, 20, 20)
+	}
+	
+	Window = Library.CreateLib("FishControl", colors)
+	
+	Main = Window:NewTab("  Main Info   ")
+	MainSection = Main:NewSection("Welcome to FishControlGui!")
+	
+	MainSection = Main:NewSection("Made By ownerofthis#6041")
+	
+	
+	
+	
+	MainSection:NewButton("Credits ", "", function(v)
+	
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Owned by";
+		Text = "KyW#8802 + ownerofthis!";})
+		Duration = 20;
+	end)
+	
+	MainSection:NewButton("Discord Server ", "Already being Copied On your Clipboard", function(v)
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Copied Link!";
+			Text = "Make sure to join the discord Discord Server!";
+			Icon = ""})
+			Duration = 20;
+		setclipboard("discord.gg/FTSWMz2qmK")
+		end)
+		
+	local Teleports = Window:NewTab("Teleports")
+	local TeleportsMain = Teleports:NewSection("Teleports, All listed below!")
+	
+	TeleportsMain:NewButton("Admin", "", function(v)
+	
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "Teleport";
+		Text = "Admin";})
+		Duration = 5;
+	end)
+	
+	TeleportsMain:NewButton("Club", "", function (v)
+		
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Teleport";
+			Text = "Club";})
+			Duration = 5;
+	end)
+	
+	TeleportsMain:NewButton("TrainStation", "", function (v)
+	
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Teleport";
+			Text = "TrainStation";})
+			Duration = 5;
+	end)
+	
+	TeleportsMain:NewButton("Bank", "", function (v)
+	
+		game.StarterGui:SetCore("SendNotification", {
+			Title = "Teleport";
+			Text = "Bank";})
+			Duration = 5;    
+	end)
+end
+end
+if game.Players.LocalPlayer.Name == getgenv().MainAcc or getgenv().Executed then
 	return
 end
 UserSettings().GameSettings.MasterVolume = 0
@@ -68,16 +153,16 @@ local Services = {
 }
 
 local Variables = {
-	HostUser = getgenv().HostUser,
+	MainAcc = getgenv().MainAcc,
 	Player = game.Players.LocalPlayer,
 }
 
-local Host = Services["Players"]:FindFirstChild(Variables["HostUser"])
+local Host = Services["Players"]:FindFirstChild(Variables["MainAcc"])
 
 if not Host then
 	print("Host is not here waiting for him to join!")
-	Services["Players"]:WaitForChild(Variables["HostUser"],9e9)
-	Host = Services["Players"]:FindFirstChild(Variables["HostUser"])
+	Services["Players"]:WaitForChild(Variables["MainAcc"],9e9)
+	Host = Services["Players"]:FindFirstChild(Variables["MainAcc"])
 end
 print("Script loaded!")
 local CmdSettings = {}
@@ -492,7 +577,7 @@ local function Initiate()
 					wait(1)
 					setfpscap(60)	
 				end
-			elseif Args[1] == ".stopdrop" then
+			elseif Args[1] == ".stop drop" then
 				Drop(false)
 			elseif Args[1] == ".reset" then
 				if Variables["Player"].Character then
@@ -506,7 +591,7 @@ local function Initiate()
 				Initiate()
 			elseif Args[1] == ".airlock" then
 				AirLock(true)
-			elseif Args[1] == ".stopairlock" then
+			elseif Args[1] == ".stop airlock" then
 				AirLock(false)
 			elseif Message == ".bring" then
 				-- didnt feel the need for a function lmao
@@ -525,15 +610,15 @@ local function Initiate()
 				if FoundPlayer then
 					BringPlr(FoundPlayer,nil)
 				end
-			elseif Message == ".setup bank" then
+			elseif Message == ".setup b" then
 				Setup("Bank")
-			elseif Message == ".setup admin" then
+			elseif Message == ".setup a" then
 				Setup("Admin")
-			elseif Message == ".setup klub" then
+			elseif Message == ".setup c" then
 				Setup("Klub")
-			elseif Message == ".setup vault" then
+			elseif Message == ".setup v" then
 				Setup("Vault")
-			elseif Message == ".setup train" then
+			elseif Message == ".setup t" then
 				Setup("Train")
 			elseif Message == ".wallet on" then
 				ShowWallet()
@@ -633,7 +718,7 @@ if Host then
 end
 
 Services["Players"].PlayerAdded:Connect(function(Player)
-	if Player.Name == Variables["HostUser"] then
+	if Player.Name == Variables["MainAcc"] then
 		Initiate()
 	end
 end)

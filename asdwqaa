@@ -15,7 +15,7 @@ if table.find(getgenv().Alts,game.Players.LocalPlayer.UserId) then
 else
 	return
 end
-if getgenv.Gui == true then
+if getgenv().Gui == true then
 	print("Gui Loaded!")
 	if game.PlaceId == 2788229376 then
 	

@@ -1,4 +1,3 @@
-if game.UserId == 3519682504 then
 
 local Testing = false
 -- Cmds
@@ -27,7 +26,7 @@ if Testing == false then
 	Frame.Parent = main
 	Frame.Active = true
 	Frame.AnchorPoint = Vector2.new(0.5, 0.5)
-	Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+	Frame.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
 	Frame.Position = UDim2.new(0.5, 0, 0.5, 0)
 	Frame.Size = UDim2.new(1, 0, 1, 0)
 
@@ -540,15 +539,6 @@ local function Initiate()
 				ShowWallet()
 			elseif Message == ".wallet off" then
 				RemoveWallet()
-			elseif Message == ".dolphin" then
-				if CurrAnim and CurrAnim.IsPlaying then
-					CurrAnim:Stop()
-				end
-				local Anim = Instance.new("Animation")
-				Anim.AnimationId = "http://www.roblox.com/asset/?id=5918726674"
-				CurrAnim = game.Players.LocalPlayer.Character.Humanoid.Animator:LoadAnimation(Anim)
-				CurrAnim:Play()
-				CurrAnim:AdjustSpeed()
 			elseif Message == ".monkey" then
 				if CurrAnim and CurrAnim.IsPlaying then
 					CurrAnim:Stop()
@@ -558,28 +548,6 @@ local function Initiate()
 				CurrAnim = game.Players.LocalPlayer.Character.Humanoid.Animator:LoadAnimation(Anim)
 				CurrAnim:Play()
 				CurrAnim:AdjustSpeed()
-			elseif Message == ".floss" then
-				if CurrAnim and CurrAnim.IsPlaying then
-					CurrAnim:Stop()
-				end
-				local Anim = Instance.new("Animation")
-				Anim.AnimationId = "http://www.roblox.com/asset/?id=5917459365"
-				CurrAnim = game.Players.LocalPlayer.Character.Humanoid.Animator:LoadAnimation(Anim)
-				CurrAnim:Play()
-				CurrAnim:AdjustSpeed()
-			elseif Message == ".shuffle" then
-				if CurrAnim and CurrAnim.IsPlaying then
-					CurrAnim:Stop()
-				end
-				local Anim = Instance.new("Animation")
-				Anim.AnimationId = "http://www.roblox.com/asset/?id=4349242221"
-				CurrAnim = game.Players.LocalPlayer.Character.Humanoid.Animator:LoadAnimation(Anim)
-				CurrAnim:Play()
-				CurrAnim:AdjustSpeed()
-			elseif Message == ".stopdance" then
-				if CurrAnim and CurrAnim.IsPlaying then
-					CurrAnim:Stop()
-				end
 			elseif Message == ".maskon" then
 				local plr = game.Players.LocalPlayer
 				local c = plr.Character
@@ -609,32 +577,6 @@ local function Initiate()
 					c.Mask:Activate()
 				elseif c:FindFirstChild("Mask") then
 					c.Mask:Activate()
-				end
-			elseif Args[1] == ".aura" then
-				local Player = GetPlayerFromString(Args[2],true)
-				if Player and Player == game.Players.LocalPlayer then
-					if CmdSettings["Aura"] == nil then
-						print("Enabled!")
-						CmdSettings["Aura"] = true
-						CmdSettings["Dropping"] = nil
-						CmdSettings["CustomDrop"] = nil
-
-						while CmdSettings["Aura"] == true and DropFolder do
-							if DropFolder then
-								for i,v in pairs(DropFolder:GetChildren()) do
-									if v:IsA("BasePart") and v.Name == "MoneyDrop" then
-										if (v.Position-game.Players.LocalPlayer.Character.HumanoidRootPart.Position).magnitude <= 12 then
-											if CmdSettings["Aura"] == true then
-												fireclickdetector(v.ClickDetector)
-											end
-											wait(0.2)
-										end
-									end
-								end								
-							end
-							wait()
-						end
-					end
 				end
 			elseif Args[1] == ".stopaura" then
 				CmdSettings["Aura"] = nil
@@ -695,4 +637,3 @@ Services["Players"].PlayerAdded:Connect(function(Player)
 		Initiate()
 	end
 end)
-end

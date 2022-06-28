@@ -15,10 +15,8 @@ if table.find(getgenv().Alts,game.Players.LocalPlayer.UserId) then
 else
 	return
 end
-if getgenv().Gui == true then
-	print("Gui Loaded!")
-	if game.PlaceId == 2788229376 then
-	
+if game.PlaceId == 2788229376 then
+print("Gui Loaded!")
 	Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 	colors = {
 	SchemeColor = Color3.fromRGB(0,0,0),
